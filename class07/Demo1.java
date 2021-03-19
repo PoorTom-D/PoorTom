@@ -21,13 +21,14 @@ public class Demo1 {
         String proday=reader.nextLine();
         System.out.println("请输入保质日期：");
         int bzday=reader.nextInt();
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date prodate=sdf.parse(proday);
         cal.setTime(prodate);
         cal.add(Calendar.DATE,bzday);
         System.out.println("产品过期日期："+cal.getTime());
         cal.add(Calendar.DATE,-7);
         cal.set(Calendar.DAY_OF_WEEK,Calendar.WEDNESDAY);
-        System.out.println("产品促销日期："+cal.getTime());
+        System.out.println("产品促销日期："+cal.getTime());//cal.getTime()=prodate
+        System.out.println("产品促销日期："+sdf.format(cal.getTime()));
     }
 }
